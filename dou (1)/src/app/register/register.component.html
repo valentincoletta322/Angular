@@ -1,0 +1,25 @@
+<div id="contenedor">
+    <div id="central">
+        <div id="login">
+            <div class="titulo">
+                REGISTER
+            </div>
+            <div class="subtitulo">
+                Consumo eléctrico API
+            </div>
+            <div class="line"><hr class="line"></div>
+            <form id="loginform" (ngSubmit)="crearUsuario()">
+                <input type="text" [(ngModel)]="username" name="username" placeholder="Usuario" required>
+
+                <input type="text" [(ngModel)]="email" name="email" placeholder="E-mail" required>
+                
+                <input type="password" [(ngModel)]="password" placeholder="Contraseña" name="password" required>
+                
+                <button type="submit" title="Ingresar" name="Ingresar">Registrate</button>
+            </form>
+            <div class="pie-form">
+                <a routerLink="/login">¿Ya tienes cuenta? Inicia sesión</a>
+            </div>
+        </div>
+    </div>
+</div>
