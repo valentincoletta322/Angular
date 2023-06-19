@@ -6,13 +6,21 @@
     <div class="bloques">
         <div class="bloque">
             <h3 class="subtitulo">Agregar una casa</h3>
-            <p></p>
-            <input type="number" name="direccionCasa" placeholder="Direccion">
-            <input type="number" name="consumoDiario" placeholder="Consumo diario">
-            <textarea rows="4" cols="31"></textarea>
-            <br>
-            <button>Subir</button>
-            <p style="color:burlywood" >{{resAgregarCasa}}</p>
+            <form (ngSubmit)="agregarCasa()">
+                <input type="number" [(ngModel)]="direccion" name="direccion" placeholder="Direccion">
+                <input type="number" [(ngModel)]="consumo_diario" name="consumodiario" placeholder="Consumo diario">
+                <br>
+                <p>Objetos</p>
+                <form (ngSubmit)="agregarObjetos()">
+                    <input type="number" [(ngModel)]="idAux" name="ida" placeholder="Id">
+                    <input type="text" [(ngModel)]="nombreAux" name="nombrea" placeholder="Nombre">
+                    <input type="number" [(ngModel)]="consumoAux" name="consumoa" placeholder="Consumo">
+                    <br>
+                    <button type="submit" style="background-color:blue;">Agregar objeto</button>
+                    </form>
+                <button type="submit">Subir</button>
+                </form>
+                <p style="color:burlywood" >{{resAgregarCasa}}</p>
         </div>
         <div class="bloque">
             <h3 class="subtitulo">Agregar un objeto</h3>
@@ -25,8 +33,6 @@
             </form>
             <p style="color:burlywood" >{{resAgregarObjeto}}</p>
         </div>
-
-
 
     </div>
 </body>

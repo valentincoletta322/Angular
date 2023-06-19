@@ -13,6 +13,7 @@ export class LoginComponent {
 
   email!: string;
   password!: string;
+  statusLogin!: string;
 
   constructor(private router: Router, private http: HttpClient) {
   }
@@ -30,12 +31,15 @@ export class LoginComponent {
     });
 
     this.http.post(this.ROOT_URL+"/signin", data, {headers}).subscribe(
-      response => {
+      (response:any) => {
         console.log(response);
+        const token = response.headers.get('Authorization');
+        localStorage.setItem("token", token)
         this.router.navigate(["/menu"]);
       },
       error => {
         console.log(error);
+        this.statusLogin="Error al iniciar sesion"
       }
     )
   }

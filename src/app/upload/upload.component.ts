@@ -26,17 +26,35 @@ export class UploadComponent {
 
   constructor(private router: Router, private http: HttpClient) {
   }
+  objetosLista: Objeto[] = [];
+  nombreAux!: string;
+  consumoAux!: number;
+  idAux!: number;
+
+  agregarObjetos(){
+    const data: Objeto = {
+      nombre: this.nombreAux,
+      id: this.idAux,
+      consumo:this.consumoAux
+
+    }
+    this.objetosLista.push(data)
+  }
 
   agregarCasa(){
 
-    const data: Casa = {
+    const data: any = {
       direccion: this.direccion,
       consumo_diario: this.consumo_diario,
-      objetos: this.objetos
+      objetos: this.objetosLista
     }
+  
+    console.log(this.objetosLista);
+    console.log(data)
 
     let headers = new HttpHeaders({
-      'Content-type':"application/json"
+      'Content-type':"application/json",
+      'Authorization': localStorage.getItem("token") || ""
     });
 
     this.http.post(this.ROOT_URL+"/casas", data, {headers}).subscribe(
@@ -51,6 +69,7 @@ export class UploadComponent {
     )
   }
 
+
   agregarObjeto(){
 
     const data: Objeto = {
@@ -60,7 +79,8 @@ export class UploadComponent {
     }
 
     let headers = new HttpHeaders({
-      'Content-type':"application/json"
+      'Content-type':"application/json",
+      'Authorization': localStorage.getItem("token") || ""
     });
     console.log(data)
     this.http.post(this.ROOT_URL+"/objetos", data, {headers}).subscribe(

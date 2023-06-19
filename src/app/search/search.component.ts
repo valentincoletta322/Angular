@@ -31,7 +31,8 @@ export class SearchComponent {
 
   buscarCasas(){
     let headers = new HttpHeaders({
-      'Content-type':"application/json"
+      'Content-type':"application/json",
+      'Authorization': localStorage.getItem("token") || ""
     });
 
     this.http.get(this.ROOT_URL+"/casas", {headers}).subscribe(
@@ -48,7 +49,8 @@ export class SearchComponent {
 
   buscarUnaCasa(){
     let headers = new HttpHeaders({
-      'Content-type':"application/json"
+      'Content-type':"application/json",
+      'Authorization': localStorage.getItem("token") || ""
     });
 
    this.http.get(this.ROOT_URL+"/casas/"+this.direccionCasa, {headers}).subscribe(
@@ -65,10 +67,11 @@ export class SearchComponent {
 
   buscarConsumo(){
     let headers = new HttpHeaders({
-      'Content-type':"application/json"
+      'Content-type':"application/json",
+      'Authorization': localStorage.getItem("token") || ""
     });
 
-   this.http.get(this.ROOT_URL+"/casas/"+this.direccionConsumo, {headers}).subscribe(
+   this.http.get(this.ROOT_URL+"/casas/"+this.direccionConsumo+"/mostrarConsumo", {headers}).subscribe(
       response => {
         console.log(response);
         this.resBuscarConsumo=JSON.stringify(response);
@@ -82,7 +85,8 @@ export class SearchComponent {
 
   buscarObjetos(){
     let headers = new HttpHeaders({
-      'Content-type':"application/json"
+      'Content-type':"application/json",
+      'Authorization': localStorage.getItem("token") || ""
     });
 
    this.http.get(this.ROOT_URL+"/objetos", {headers}).subscribe(
@@ -99,7 +103,8 @@ export class SearchComponent {
 
   buscarUnObjeto(){
     let headers = new HttpHeaders({
-      'Content-type':"application/json"
+      'Content-type':"application/json",
+      'Authorization': localStorage.getItem("token") || ""
     });
 
    this.http.get(this.ROOT_URL+"/objetos/"+this.idBusquedaObjeto, {headers}).subscribe(

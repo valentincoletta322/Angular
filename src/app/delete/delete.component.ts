@@ -25,7 +25,8 @@ export class DeleteComponent {
 
   borrarCasa(){
     let headers = new HttpHeaders({
-      'Content-type':"application/json"
+      'Content-type':"application/json",
+      'Authorization': localStorage.getItem("token") || ""
     });
 
     this.http.delete(this.ROOT_URL+"/casas/"+this.direccionCasa, {headers}).subscribe(
@@ -42,7 +43,8 @@ export class DeleteComponent {
 
   borrarObjeto(){
     let headers = new HttpHeaders({
-      'Content-type':"application/json"
+      'Content-type':"application/json",
+      'Authorization': localStorage.getItem("token") || ""
     });
 
     this.http.delete(this.ROOT_URL+"/objetos/"+this.idBusquedaObjeto, {headers}).subscribe(

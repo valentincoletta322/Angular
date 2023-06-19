@@ -6,21 +6,46 @@
     <div class="bloques">
         <div class="bloque">
             <h3 class="subtitulo">Modificar una casa</h3>
-            <p>Ingresar los datos a modificar</p>
-            <input type="text" name="direccionCasa" placeholder="Direccion">
-            <button>Subir</button>
+            <form (ngSubmit)="modificarCasa()">
+                <input type="number" [(ngModel)]="direccionB" name="direccionb" placeholder="Direccion">
+                <p>Ingresar los datos a modificar</p>
+                <input type="number" [(ngModel)]="direccion" name="direccion" placeholder="Direccion">
+                <input type="number" [(ngModel)]="consumo_diario" name="consumodiario" placeholder="Consumo diario">
+                <br>
+                <p>Ingresar los objetos que desee</p>
+                <form (ngSubmit)="agregarObjetos()">
+                    <input type="number" [(ngModel)]="idAux" name="ida" placeholder="Id">
+                    <input type="text" [(ngModel)]="nombreAux" name="nombrea" placeholder="Nombre">
+                    <input type="number" [(ngModel)]="consumoAux" name="consumoa" placeholder="Consumo">
+
+                    <button type="submit" style="background-color:blue;">Agregar objeto</button>
+                    </form>
+                <button type="submit">Modificar</button>
+                </form>
+                <p style="color:burlywood" >{{resModificarCasa}}</p>
+                    <br>
+                    <h3 class="subtitulo" style="color: rgb(42, 165, 93);">Sumar consumos</h3>
+                    <form (ngSubmit)="sumarConsumos()">
+                        <input type="number" [(ngModel)]="direccion1" name="d1" placeholder="Direccion1">
+                        <input type="number" [(ngModel)]="direccion2" name="d2" placeholder="Direccion2">
+                        <br>
+                        <button type="submit">Modificar</button>
+                        </form>
+                        <p style="color:burlywood" >{{resSumarConsumos}}</p>
         </div>
         <div class="bloque">
             <h3 class="subtitulo">Modificar un objeto</h3>
-            <p>Ingresar los datos a modificar</p>
-            <form (ngSubmit)="agregarObjeto()">
+            <form (ngSubmit)="modificarObjeto()">
+                <input type="number" [(ngModel)]="idB" name="idb" placeholder="Id">
+                <p>Ingresar los datos a modificar</p>
                 <input type="number" [(ngModel)]="id" name="id" placeholder="Id">
                 <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre">
                 <input type="number" [(ngModel)]="consumo" name="consumo" placeholder="Consumo">
                 <br>
-                <button type="submit">Subir</button>
+                <button type="submit">Modificar</button>
                 </form>
                 <p style="color:burlywood" >{{resModificarObjeto}}</p>
         </div>
+        
     </div>
 </body>
