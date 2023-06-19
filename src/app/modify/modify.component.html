@@ -13,8 +13,14 @@
         <div class="bloque">
             <h3 class="subtitulo">Modificar un objeto</h3>
             <p>Ingresar los datos a modificar</p>
-            <input type="text" name="idObjeto" placeholder="ID">
-            <button>Subir</button>
+            <form (ngSubmit)="agregarObjeto()">
+                <input type="number" [(ngModel)]="id" name="id" placeholder="Id">
+                <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre">
+                <input type="number" [(ngModel)]="consumo" name="consumo" placeholder="Consumo">
+                <br>
+                <button type="submit">Subir</button>
+                </form>
+                <p style="color:burlywood" >{{resModificarObjeto}}</p>
         </div>
     </div>
 </body>

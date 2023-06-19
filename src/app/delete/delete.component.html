@@ -7,14 +7,22 @@
         <div class="bloque">
             <h3 class="subtitulo">Eliminar una casa</h3>
             <p>Ingresar la direccion de la casa a borrar</p>
-            <input type="text" name="direccionCasa" placeholder="Direccion">
-            <button>Borrar</button>
+            <form id="searchForm" (ngSubmit)="borrarCasa()">
+                <input type="text" [(ngModel)]="direccionCasa" name="idObjeto" placeholder="Direccion">
+                <button type="submit" title="Ingresar" name="Ingresar">Borrar</button>
+            </form>
+            <p style="color:burlywood" >{{resBuscarCasa}}</p>
         </div>
         <div class="bloque">
             <h3 class="subtitulo">Eliminar un objeto</h3>
-            <p>Ingresar id del objeto a borrar</p>
-            <input type="text" name="idObjeto" placeholder="ID">
-            <button>Borrar</button>
+            <p>Ingresar la direccion del objeto a borrar</p>
+            <form id="searchForm" (ngSubmit)="borrarObjeto()">
+                <input type="number" [(ngModel)]="idBusquedaObjeto" name="idObjeto" placeholder="ID">
+                <button type="submit" title="Ingresar" name="Ingresar">Borrar</button>
+            </form>
+            <p style="color:burlywood" >{{resBuscarUnObjeto}}</p>
         </div>
+
+
     </div>
 </body>

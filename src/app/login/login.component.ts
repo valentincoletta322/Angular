@@ -17,10 +17,6 @@ export class LoginComponent {
   constructor(private router: Router, private http: HttpClient) {
   }
 
-  goToPage(page: string){
-    this.router.navigate([page]);
-  }
-
   iniciarSesion(){
 
     const data: Usuario = {
